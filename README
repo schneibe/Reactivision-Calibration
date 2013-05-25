@@ -1,1 +1,13 @@
-asdflasjkdflkjsdtest
+REACTIVISION-CALIBRATION
+------------------------
+
+Performs a four-points calibration for the fiducials used in the Reactivision framework (http://reactivision.sourceforge.net/). This code works for Processing 2.x.
+
+I have been frustrated for a while with the calibration procedure provided in reactivision. Here is a simpler approach.
+
+Procedure:
+1) You need to have the reactivision library installed in your folder
+2) Launch the script; position a fiducial on the target located on top left corner of the screen; press 'c'
+3) repeat for each corner of the screen
+
+The position of your tags should now be properly calibrated. Use the functions tx(tobj) and ty(tobj) in your code to get the correct coordinates.
