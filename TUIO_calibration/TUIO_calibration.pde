@@ -98,7 +98,6 @@ void refresh(TuioTime bundleTime) {
 
 
 
-/* calibration stuff */
 
 float a1,b1,c1,a3,b3,a2,b2,c2;
 
@@ -116,12 +115,37 @@ void initCalibration()
   dots[1] = new PVector( width -calibInset, calibInset ); //top right
   dots[2] = new PVector( calibInset, height -calibInset ); //bot left
   dots[3] = new PVector( width -calibInset, height -calibInset); //bot right
+  
+  // if we already have some data, then we used the saved configuration
+  String lines[] = loadStrings("calibration.txt");
+  if(lines != null && lines.length == 8)
+  {
+    println("Loading calibration file...");
+    b3 = float(lines[0]);
+    b2 = float(lines[1]);
+    a2 = float(lines[2]);
+    c2 = float(lines[3]);
+    a3 = float(lines[4]);
+    b1 = float(lines[5]);
+    a1 = float(lines[6]);
+    c1 = float(lines[7]);
+    calibrated = true;
+    println("Done.");
+  }
 }
 
 void keyPressed() 
 {
-  Vector tuioObjectList = tuioClient.getTuioObjects();
+  java.util.Vector tuioObjectList = tuioClient.getTuioObjects();
   
+  // performs a new calibration
+  if (key == 'n')
+  {
+    calibrated = false;
+    calPoints = 0;
+  }
+  
+  // save data points
   if (key == 'c')
   {
     if(tuioObjectList.size() > 0) 
@@ -130,19 +154,9 @@ void keyPressed()
       getCalibrationPoint(tobj.getScreenX(width), tobj.getScreenY(height));
     }
   }
-  
-  println("" + calPoints);
 }
 
 void drawCalibration()
-{
-  if( calibrated == false )
-  {
-    drawCalibrationImage();
-  }
-}
-
-void drawCalibrationImage()
 {
   int lineLength = 10;
 
@@ -310,6 +324,11 @@ int calibrate()
   if( Float.isNaN( c1 ) ) return 1;
   
   println( "calibrated OK" );
+  
+  String data = ""+b3+";"+b2+";"+a2+";"+c2+";"+a3+";"+b1+";"+a1+";"+c1;
+  
+  saveStrings("calibration.txt", split(data, ';'));
+  
   return 0;
 }
 
