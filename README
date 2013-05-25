@@ -11,3 +11,6 @@ Procedure:
 3) repeat for each corner of the screen
 
 The position of your tags should now be properly calibrated. Use the functions tx(tobj) and ty(tobj) in your code to get the correct coordinates.
+
+
+NOTE: I reused the code provided by Matthew Venn in the processing forum to calibrate a wiimote. 
