@@ -49,7 +49,7 @@ void draw()
      rect(-obj_size/2,-obj_size/2,obj_size,obj_size);
      popMatrix();
      fill(255);
-     text(""+tobj.getSymbolID(), tobj.getScreenX(width), tobj.getScreenY(height));
+     text(""+tobj.getSymbolID(), tx(tobj), ty(tobj));
    }   
   
   if (!calibrated) drawCalibration(); 
@@ -98,6 +98,7 @@ void refresh(TuioTime bundleTime) {
 
 
 
+/* calibration stuff */
 
 float a1,b1,c1,a3,b3,a2,b2,c2;
 
