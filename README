@@ -13,6 +13,3 @@ Procedure:
 This will save your values to the "calibration.txt" file. If you want to start a new calibration, press 'n' on your keyboard.
 
 The position of your tags should now be properly calibrated. Use the functions tx(tobj) and ty(tobj) in your code to get the correct coordinates.
-
-
-NOTE: I reused the code provided by Matthew Venn in the processing forum to calibrate a wiimote. 
