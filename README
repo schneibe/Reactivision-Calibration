@@ -19,4 +19,9 @@ Procedure:
 
 This will save your values to the "calibration.txt" file. If you want to start a new calibration, press 'n' on your keyboard. So you don't have to calibrate your system every time you launch your application.
 
+
+
 The position of your tags should now be properly calibrated. Use the functions tx(tobj) and ty(tobj) in your code to get the correct coordinates.
+
+
+Code adapted from Jochen Zaunert (http://www.zaunert.de/jochenz/wii/).
