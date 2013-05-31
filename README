@@ -23,5 +23,6 @@ This will save your values to the "calibration.txt" file. If you want to start a
 
 The position of your tags should now be properly calibrated. Use the functions tx(tobj) and ty(tobj) in your code to get the correct coordinates.
 
+See this thread for more information (https://sourceforge.net/projects/reactivision/forums/forum/515398/topic/8278640)
 
 Code adapted from Jochen Zaunert (http://www.zaunert.de/jochenz/wii/).
