@@ -9,17 +9,19 @@ I have been frustrated for a while with the calibration procedure provided in re
 - or copy `Calibration.pde` file to your project folder; then add a global Calibration object, 
   initialize it in `setup`, and call it in `draw`. For example:
 
-    Calibration calibration;
+```
+Calibration calibration;
     
-    void setup() {
-        calibration = new Calibration();
-        // do the rest of your setup
-    }
+void setup() {
+    calibration = new Calibration();
+    // do the rest of your setup
+}
     
-    void draw() {
-        if(!calibration.calibrated) calibration.draw();
-        // do the rest of your drawing
-    }
+void draw() {
+    if(!calibration.calibrated) calibration.draw();
+    // do the rest of your drawing
+}
+```
 
 ## Usage
 -  install reactivision in your library folder
