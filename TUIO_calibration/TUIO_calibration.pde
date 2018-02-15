@@ -39,9 +39,9 @@ void draw()
   float obj_size = object_size*scale_factor; 
   float cur_size = cursor_size*scale_factor; 
    
-  Vector tuioObjectList = tuioClient.getTuioObjects();
+  ArrayList<TuioObject> tuioObjectList = tuioClient.getTuioObjectList();
   for (int i=0;i<tuioObjectList.size();i++) {
-     TuioObject tobj = (TuioObject)tuioObjectList.elementAt(i);
+     TuioObject tobj = (TuioObject)tuioObjectList.get(i);
      stroke(255);
      fill(0);
      pushMatrix();
@@ -88,6 +88,21 @@ void updateTuioCursor (TuioCursor tcur) {
 // called when a cursor is removed from the scene
 void removeTuioCursor(TuioCursor tcur) {
   println("remove cursor "+tcur.getCursorID()+" ("+tcur.getSessionID()+")");
+}
+
+// called when a blob is added
+void addTuioBlob(TuioBlob tblb) {
+  println("add blob (" + tblb.getSessionID() + ")");
+}
+
+// called when a blob is removed
+void removeTuioBlob(TuioBlob tblb) {
+  println("remove blob (" + tblb.getSessionID() + ")");
+}
+
+// called when a blob is updated
+void updateTuioBlob(TuioBlob tblb) {
+  println("update blob (" + tblb.getSessionID() + ")");
 }
 
 // called after each message bundle

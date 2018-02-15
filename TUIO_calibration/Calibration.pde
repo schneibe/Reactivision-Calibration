@@ -5,7 +5,7 @@ int ty(TuioObject tobj) { return  calibration.corrected_y(tobj); }
 // keyboard keys for the calibration procedure
 void keyPressed() 
 {
-  java.util.Vector tuioObjectList = tuioClient.getTuioObjects();
+  ArrayList<TuioObject> tuioObjectList = tuioClient.getTuioObjectList();
   
   // performs a new calibration
   if (key == 'n')
@@ -19,7 +19,7 @@ void keyPressed()
   {
     if(tuioObjectList.size() > 0) 
     {
-      TuioObject tobj = (TuioObject)tuioObjectList.elementAt(0);
+      TuioObject tobj = tuioObjectList.get(0);
       calibration.getCalibrationPoint(tobj.getScreenX(width), tobj.getScreenY(height));
     }
   }
